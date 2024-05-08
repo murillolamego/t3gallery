@@ -1,8 +1,11 @@
 import "~/styles/globals.css";
+import "@uploadthing/react/styles.css";
 
-import { ClerkProvider, SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { Inter } from "next/font/google";
+import { TopNav } from "./_components/topnav";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,22 +18,7 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-function TopNav() {
-  return (
-    <nav className="flex w-full items-center justify-between p-4 border-b text-xl font-semibold">
-      <div>Gallery</div>
 
-      <div>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </div>
-    </nav>
-  )
-}
 
 export default function RootLayout({
   children,
